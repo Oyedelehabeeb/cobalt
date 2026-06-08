@@ -17,6 +17,7 @@ RUN apk add --no-cache git \
     && git config --global user.email "build@chopng.app" \
     && git config --global user.name "ChopNG Build" \
     && git init \
+    && git remote add origin https://github.com/imputnet/cobalt.git \
     && git commit --allow-empty -m "init" \
     && chown -R node:node /app/.git
 USER node
