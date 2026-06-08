@@ -20,3 +20,4 @@ RUN apk add --no-cache git \
 USER node
 EXPOSE 9000
 CMD [ "node", "src/cobalt" ]
+
