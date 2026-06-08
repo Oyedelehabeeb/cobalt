@@ -14,10 +14,11 @@ FROM base AS api
 WORKDIR /app
 COPY --from=build --chown=node:node /prod/api /app
 RUN apk add --no-cache git \
+    && git config --global user.email "build@chopng.app" \
+    && git config --global user.name "ChopNG Build" \
     && git init \
     && git commit --allow-empty -m "init" \
     && chown -R node:node /app/.git
 USER node
 EXPOSE 9000
 CMD [ "node", "src/cobalt" ]
-
